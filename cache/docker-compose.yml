@@ -5,10 +5,16 @@ services:
     image: redis:7-alpine
     container_name: redis
     ports:
-      - '6379:6379'
+      - '6379:6379'   # optional, only needed if you want to connect from host
     volumes:
       - redis-data:/data
     restart: unless-stopped
+    networks:
+      - nfm-services
 
 volumes:
   redis-data:
+
+networks:
+  nfm-services:
+    external: true
