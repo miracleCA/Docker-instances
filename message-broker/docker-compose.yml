@@ -13,6 +13,7 @@ services:
       - KAFKA_CFG_CONTROLLER_QUORUM_VOTERS=1@kafka:9093
       - KAFKA_CFG_NODE_ID=1
       - KAFKA_CLUSTER_ID=my-cluster-id
+    restart: unless-stopped   # 🔑 this makes it restart
     networks:
       - nfm-services
 
